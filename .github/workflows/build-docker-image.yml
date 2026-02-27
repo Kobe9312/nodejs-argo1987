@@ -31,15 +31,15 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
       
-      - name: Build and push Docker image
+      -  name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
           context: .
           push: ${{ github.event_name != 'pull_request' }}
           platforms: linux/amd64,linux/arm64
           tags: |
-            ghcr.io/${{ github.repository_owner | lower }}/mamba:latest
-            ghcr.io/${{ github.repository_owner | lower }}/mamba:${{ github.sha }}
+            ghcr.io/kobe9312/mamba:latest
+            ghcr.io/kobe9312/mamba:${{ github.sha }}
           labels: |
             org.opencontainers.image.source=https://github.com/${{ github.repository }}
             org.opencontainers.image.description=HTTP Server
